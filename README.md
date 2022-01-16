@@ -563,38 +563,9 @@ Result of likwid under roof_latency group using Stream benchmark
 Number of cores used: 18
 Run Stream benchmark 3 times and calculate the average
 
-* The first take
------------+
-|     Time: Runtime (RDTSC) [s] STAT     |      404.0622 |      22.4479 |       22.4479 |      22.4479 |
-|     Time: Runtime unhalted [s] STAT    |      398.3894 |      22.1251 |       22.1884 |      22.1327 |
-|            inverseClock STAT           |  7.844184e-09 | 4.357880e-10 |  4.357880e-10 | 4.357880e-10 |
-|            Clock [MHz] STAT            |    50213.4383 |    2787.1731 |     2794.7828 |    2789.6355 |
-|         Uncore Clock [MHz] STAT        |     2987.4911 |            0 |     2987.4911 |     165.9717 |
-|       Time: Core total stall STAT      |      292.7039 |      16.2302 |       16.3142 |      16.2613 |
-|        Time: Core l2 stall STAT        |      128.7501 |       7.1081 |        7.2503 |       7.1528 |
-|        Time: Core ldm stall STAT       |      155.7949 |       8.5787 |        8.7832 |       8.6553 |
-|                CPI STAT                |       35.1945 |       1.9388 |        1.9601 |       1.9552 |
-|           Power PKG [W] STAT           |      127.6242 |            0 |      127.6242 |       7.0902 |
-|           Power DRAM [W] STAT          |       18.1262 |            0 |       18.1262 |       1.0070 |
-|           Energy PKG [J] STAT          |     2864.8909 |            0 |     2864.8909 |     159.1606 |
-|          Energy DRAM [J] STAT          |      406.8949 |            0 |      406.8949 |      22.6053 |
-|           L2M Pending[%] STAT          |      581.7174 |      32.1270 |       32.7604 |      32.3176 |
-|           LD Pending[%] STAT           |      703.9108 |      38.7638 |       39.6869 |      39.1062 |
-|    LLC Any bandwidth [Bytes/s] STAT    |   72196900000 |            0 |   72196900000 | 4.010939e+09 |
-| LLC data read bandwidth [Bytes/s] STAT |   21718380000 |            0 |   21718380000 | 1.206577e+09 |
-|    LLC read bandwidth [Bytes/s] STAT   |   36219330000 |            0 |   36219330000 |   2012185000 |
-|   LLC write bandwidth [Bytes/s] STAT   |   14321740000 |            0 |   14321740000 | 7.956522e+08 |
-|       LLC Any volume [Bytes] STAT      | 1620666029632 |            0 | 1620666029632 | 9.003700e+10 |
-|    LLC data read volume [Bytes] STAT   |  487531208640 |            0 |  487531208640 | 2.708507e+10 |
-|      LLC read volume [Bytes] STAT      |  813046409920 |            0 |  813046409920 | 4.516924e+10 |
-|      LLC write volume [Bytes] STAT     |  321492471488 |            0 |  321492471488 | 1.786069e+10 |
-|   DRAM read bandwidth [Bytes/s] STAT   |   64281860000 |            0 |   64281860000 | 3.571214e+09 |
-|   DRAM write bandwidth [Bytes/s] STAT  |   25632790000 |            0 |   25632790000 | 1.424044e+09 |
-|      DRAM read volume [Bytes] STAT     | 1442990347712 |            0 | 1442990347712 | 8.016613e+10 |
-|     DRAM write volume [Bytes] STAT     |  575401220352 |            0 |  575401220352 |  31966734464 |
-|           Time: MEM busy STAT          |       43.4998 |            0 |       43.4998 |       2.4167 |
+* Problem size is big enough for DRAM
 
-* The second take
+
 +----------------------------------------+---------------+--------------+---------------+--------------+
 |                 Metric                 |      Sum      |      Min     |      Max      |      Avg     |
 +----------------------------------------+---------------+--------------+---------------+--------------+
@@ -637,49 +608,48 @@ Run Stream benchmark 3 times and calculate the average
 
 
 
-* The third take
+* The problem size is reduced for cache testing
 
 
 +----------------------------------------+---------------+--------------+---------------+--------------+
 |                 Metric                 |      Sum      |      Min     |      Max      |      Avg     |
 +----------------------------------------+---------------+--------------+---------------+--------------+
-|     Time: Runtime (RDTSC) [s] STAT     |      396.6804 |      22.0378 |       22.0378 |      22.0378 |
-|     Time: Runtime unhalted [s] STAT    |      390.8692 |      21.7070 |       21.7681 |      21.7150 |
-|            inverseClock STAT           |  7.844454e-09 | 4.358030e-10 |  4.358030e-10 | 4.358030e-10 |
-|            Clock [MHz] STAT            |    50210.6485 |    2786.7329 |     2794.1895 |    2789.4805 |
-|         Uncore Clock [MHz] STAT        |     2985.4373 |            0 |     2985.4373 |     165.8576 |
-|       Time: Core total stall STAT      |      285.4520 |      15.8126 |       15.8894 |      15.8584 |
-|        Time: Core l2 stall STAT        |      125.1359 |       6.9017 |        6.9998 |       6.9520 |
-|        Time: Core ldm stall STAT       |      151.2528 |       8.2972 |        8.4827 |       8.4029 |
-|                CPI STAT                |       34.5715 |       1.9016 |        1.9265 |       1.9206 |
-|           Power PKG [W] STAT           |      128.5927 |            0 |      128.5927 |       7.1440 |
-|           Power DRAM [W] STAT          |       18.2808 |            0 |       18.2808 |       1.0156 |
-|           Energy PKG [J] STAT          |     2833.8987 |            0 |     2833.8987 |     157.4388 |
-|          Energy DRAM [J] STAT          |      402.8692 |            0 |      402.8692 |      22.3816 |
-|           L2M Pending[%] STAT          |      576.2655 |      31.7856 |       32.2384 |      32.0147 |
-|           LD Pending[%] STAT           |      696.5394 |      38.1165 |       39.0682 |      38.6966 |
-|    LLC Any bandwidth [Bytes/s] STAT    |   73921580000 |            0 |   73921580000 | 4.106754e+09 |
-| LLC data read bandwidth [Bytes/s] STAT |   22094970000 |            0 |   22094970000 | 1.227498e+09 |
-|    LLC read bandwidth [Bytes/s] STAT   |   36845170000 |            0 |   36845170000 | 2.046954e+09 |
-|   LLC write bandwidth [Bytes/s] STAT   |   14586750000 |            0 |   14586750000 |    810375000 |
-|       LLC Any volume [Bytes] STAT      | 1629068177536 |            0 | 1629068177536 | 9.050379e+10 |
-|    LLC data read volume [Bytes] STAT   |  486924250816 |            0 |  486924250816 | 2.705135e+10 |
-|      LLC read volume [Bytes] STAT      |  811986024320 |            0 |  811986024320 | 4.511033e+10 |
-|      LLC write volume [Bytes] STAT     |  321459802432 |            0 |  321459802432 | 1.785888e+10 |
-|   DRAM read bandwidth [Bytes/s] STAT   |   36548600000 |            0 |   36548600000 | 2.030478e+09 |
-|   DRAM write bandwidth [Bytes/s] STAT  |   14574380000 |            0 |   14574380000 | 8.096878e+08 |
-|      DRAM read volume [Bytes] STAT     |  805450257920 |            0 |  805450257920 | 4.474724e+10 |
-|     DRAM write volume [Bytes] STAT     |  321187090944 |            0 |  321187090944 | 1.784373e+10 |
-|           Time: MEM busy STAT          |       24.2810 |            0 |       24.2810 |       1.3489 |
-|           Time: L3 busy STAT           |        2.9288 |            0 |        2.9288 |       0.1627 |
-|               Ins [] STAT              |  567690599419 |  31432302754 |   31985462329 | 3.153837e+10 |
-|              Cycle [] STAT             | 1090322511281 |  60497715599 |   60824214824 | 6.057347e+10 |
-|            Stall_l2M [] STAT           |  349064184485 |  19249507105 |   19531012821 | 1.939245e+10 |
-|            Stall_mem [] STAT           |  421916470750 |  23184032673 |   23660951863 | 2.343980e+10 |
-|           L3_Latency [] STAT           |       13.7133 |       0.7562 |        0.7673 |       0.7619 |
-|          DRAM_latency [] STAT          |       23.9675 |       1.3170 |        1.3441 |       1.3315 |
+|     Time: Runtime (RDTSC) [s] STAT     |      210.3750 |      11.6875 |       11.6875 |      11.6875 |
+|     Time: Runtime unhalted [s] STAT    |      207.8772 |      11.4983 |       11.5539 |      11.5487 |
+|            inverseClock STAT           |  7.844175e-09 | 4.357875e-10 |  4.357875e-10 | 4.357875e-10 |
+|            Clock [MHz] STAT            |    50111.8036 |    2778.7485 |     2789.3769 |    2783.9891 |
+|         Uncore Clock [MHz] STAT        |     2932.2592 |            0 |     2932.2592 |     162.9033 |
+|       Time: Core total stall STAT      |       29.5208 |       1.6159 |        1.6487 |       1.6400 |
+|        Time: Core l2 stall STAT        |        2.3900 |       0.1034 |        0.2131 |       0.1328 |
+|        Time: Core ldm stall STAT       |       26.5063 |       1.4565 |        1.4802 |       1.4726 |
+|                CPI STAT                |       10.2467 |       0.5676 |        0.5702 |       0.5693 |
+|           Power PKG [W] STAT           |      142.6615 |            0 |      142.6615 |       7.9256 |
+|           Power DRAM [W] STAT          |        6.0096 |            0 |        6.0096 |       0.3339 |
+|           Energy PKG [J] STAT          |     1667.3534 |            0 |     1667.3534 |      92.6307 |
+|          Energy DRAM [J] STAT          |       70.2375 |            0 |       70.2375 |       3.9021 |
+|           L2M Pending[%] STAT          |       20.6948 |       0.8952 |        1.8448 |       1.1497 |
+|           LD Pending[%] STAT           |      229.5167 |      12.6484 |       12.8170 |      12.7509 |
+|    LLC Any bandwidth [Bytes/s] STAT    |  221684800000 |            0 |  221684800000 | 1.231582e+10 |
+| LLC data read bandwidth [Bytes/s] STAT |   74693050000 |            0 |   74693050000 | 4.149614e+09 |
+|    LLC read bandwidth [Bytes/s] STAT   |  124478300000 |            0 |  124478300000 | 6.915461e+09 |
+|   LLC write bandwidth [Bytes/s] STAT   |   49390430000 |            0 |   49390430000 | 2.743913e+09 |
+|       LLC Any volume [Bytes] STAT      | 2590936419648 |            0 | 2590936419648 | 1.439409e+11 |
+|    LLC data read volume [Bytes] STAT   |  872973565568 |            0 |  872973565568 | 4.849853e+10 |
+|      LLC read volume [Bytes] STAT      | 1454838212096 |            0 | 1454838212096 | 8.082435e+10 |
+|      LLC write volume [Bytes] STAT     |  577249690688 |            0 |  577249690688 | 3.206943e+10 |
+|   DRAM read bandwidth [Bytes/s] STAT   |     116102100 |            0 |     116102100 | 6.450117e+06 |
+|   DRAM write bandwidth [Bytes/s] STAT  |      65372070 |            0 |      65372070 | 3.631782e+06 |
+|      DRAM read volume [Bytes] STAT     |    1356941248 |            0 |    1356941248 | 7.538562e+07 |
+|     DRAM write volume [Bytes] STAT     |     764034880 |            0 |     764034880 | 4.244638e+07 |
+|           Time: MEM busy STAT          |        0.0457 |            0 |        0.0457 |       0.0025 |
+|           Time: L3 busy STAT           |        5.2509 |            0 |        5.2509 |       0.2917 |
+|               Ins [] STAT              | 1016628789998 |  56452247400 |   56522779049 | 5.647938e+10 |
+|              Cycle [] STAT             |  578727263967 |  32073186950 |   32200832481 | 3.215151e+10 |
+|            Stall_l2M [] STAT           |    6653803438 |    287899126 |     593306081 | 3.696557e+08 |
+|            Stall_LDM [] STAT           |   73793263947 |   4062847041 |    4122559801 | 4.099626e+09 |
+|           L3_Latency [] STAT           |        0.1643 |       0.0071 |        0.0147 |       0.0091 |
+|          DRAM_latency [] STAT          |     2226.6957 |     122.5955 |      124.3974 |     123.7053 |
 +----------------------------------------+---------------+--------------+---------------+--------------+
-
 
 
 * NAS Parallel bencnmark - CG 
@@ -816,6 +786,48 @@ Run CG 5 times and get the average
 
 
 
+
+* Class is B problem size is set to 20000: (in this case data is mostly in cache not DRAM)
+
++----------------------------------------+--------------+--------------+--------------+--------------+
+|                 Metric                 |      Sum     |      Min     |      Max     |      Avg     |
++----------------------------------------+--------------+--------------+--------------+--------------+
+|     Time: Runtime (RDTSC) [s] STAT     |      16.9740 |       0.9430 |       0.9430 |       0.9430 |
+|     Time: Runtime unhalted [s] STAT    |      14.7399 |       0.8094 |       0.8324 |       0.8189 |
+|            inverseClock STAT           | 7.844321e-09 | 4.357956e-10 | 4.357956e-10 | 4.357956e-10 |
+|            Clock [MHz] STAT            |   47918.3114 |    2555.1656 |    2699.8191 |    2662.1284 |
+|         Uncore Clock [MHz] STAT        |    2765.5592 |            0 |    2765.5592 |     153.6422 |
+|       Time: Core total stall STAT      |       4.1852 |       0.2175 |       0.2414 |       0.2325 |
+|        Time: Core l2 stall STAT        |       2.3010 |       0.1104 |       0.1565 |       0.1278 |
+|        Time: Core ldm stall STAT       |       3.1524 |       0.1584 |       0.2034 |       0.1751 |
+|                CPI STAT                |      11.2409 |       0.6014 |       0.6421 |       0.6245 |
+|           Power PKG [W] STAT           |     127.3681 |            0 |     127.3681 |       7.0760 |
+|           Power DRAM [W] STAT          |       8.8885 |            0 |       8.8885 |       0.4938 |
+|           Energy PKG [J] STAT          |     120.1035 |            0 |     120.1035 |       6.6724 |
+|          Energy DRAM [J] STAT          |       8.3815 |            0 |       8.3815 |       0.4656 |
+|           L2M Pending[%] STAT          |     280.9769 |      13.5251 |      19.0576 |      15.6098 |
+|           LD Pending[%] STAT           |     384.9329 |      19.4017 |      24.7683 |      21.3852 |
+|    LLC Any bandwidth [Bytes/s] STAT    | 209791800000 |            0 | 209791800000 |  11655100000 |
+| LLC data read bandwidth [Bytes/s] STAT | 161550400000 |            0 | 161550400000 | 8.975022e+09 |
+|    LLC read bandwidth [Bytes/s] STAT   | 163642800000 |            0 | 163642800000 | 9.091267e+09 |
+|   LLC write bandwidth [Bytes/s] STAT   |   1693107000 |            0 |   1693107000 |     94061500 |
+|       LLC Any volume [Bytes] STAT      | 197825969024 |            0 | 197825969024 | 1.099033e+10 |
+|    LLC data read volume [Bytes] STAT   | 152336124032 |            0 | 152336124032 | 8.463118e+09 |
+|      LLC read volume [Bytes] STAT      | 154309137472 |            0 | 154309137472 | 8.572730e+09 |
+|      LLC write volume [Bytes] STAT     |   1596537664 |            0 |   1596537664 | 8.869654e+07 |
+|   DRAM read bandwidth [Bytes/s] STAT   |  11956440000 |            0 |  11956440000 | 6.642467e+08 |
+|   DRAM write bandwidth [Bytes/s] STAT  |    202196800 |            0 |    202196800 | 1.123316e+07 |
+|      DRAM read volume [Bytes] STAT     |  11274480512 |            0 |  11274480512 | 6.263600e+08 |
+|     DRAM write volume [Bytes] STAT     |    190664128 |            0 |    190664128 | 1.059245e+07 |
+|           Time: MEM busy STAT          |       0.2471 |            0 |       0.2471 |       0.0137 |
+|           Time: L3 busy STAT           |       0.4029 |            0 |       0.4029 |       0.0224 |
+|               Ins [] STAT              |  62839166751 |   3417670621 |   3555966104 | 3.491065e+09 |
+|              Cycle [] STAT             |  39241008656 |   2068045476 |   2218019834 | 2.180056e+09 |
+|            Stall_l2M [] STAT           |   6126985741 |    287108008 |    418245834 | 3.403881e+08 |
+|            Stall_LDM [] STAT           |   8393670245 |    411855653 |    543576290 | 4.663150e+08 |
+|           L3_Latency [] STAT           |       1.9822 |       0.0929 |       0.1353 |       0.1101 |
+|          DRAM_latency [] STAT          |      46.8546 |       2.2990 |       3.0343 |       2.6030 |
++----------------------------------------+--------------+--------------+--------------+--------------+
 * Run sampling doing nothing 
 
 init freeze 700 80000000
@@ -3123,4 +3135,130 @@ Energy of socket 1 : PKG: 0.000000 DRAM 0.000000
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-2. take
+
+export OMP_NUM_THREADS=18
+export OMP_PROC_BIND=close
+export OMP_PLACES="{18:18:1}"
+
+### Sampling interval is 2s
+
+Start_core 18 End_core 36  num_core_events 6
+init freeze 700 80000000
+init unfreeze 700 20000000
+Socket : 1
+WallTime : 2.000000
+Uncorefreq: 2.9939e+09
+CoreFreq : 1.9913e+09
+Core unhlated time : 1.999017
+Core halted time : 0.000983
+--------
+ins cumulative: 50256310272.000000
+cycles cumulative: 71651500032.000000
+L2 stalld : 19535601664.000000
+ Ldm stalld : 25178054656.000000
+total stalld : 45873991680.000000
+cycles : 71651500032.000000
+--------
+Time: Core : running 0.719171, total stall: 1.279846, stall+halted: 1.280829
+Time: Core : running 1.453990, l2 stall: 0.545027, stall+halted: 0.546010
+Time: Core : running 1.296570, ldm stall: 0.702447, stall+halted: 0.703430
+Rate: Core : running 35.958557%, total stall: 63.992290%, stall+halted: 64.041443%
+Rate: Core : running 72.699509%, l2 stall: 27.251345%, stall+halted: 27.300495%
+Rate: Core : running 64.828506%, ldm stall: 35.122334%, stall+halted: 35.171490%
+Time: Mem Busy: 1.944384 idle 0.055616
+Time: L3 busy: 0.417789 idle 1.582211
+Rate: Mem Busy: 97.219215 0dle 2.780783%
+Rate: L3 busy: 20.889429 0dle 79.110573%
+L3 volum: 9.3585e+10
+RAM volum: 9.9140e+10
+lowerBound : 17
+ upperBound : 18
+full L3 BW : 2.2400e+11
+ fullRAMBW: 5.0988e+10
+PKG Energy: 186.111633
+ PKG Power : 93.055817
+DRAM Energy: 36.356689
+ Power : 18.178345
+***** Roofline L3 ******
+ins 50256310272.000000, datavolume 93584637952.000000, timeinterval 2.000000, timeCoreStall 0.546010, timeMemIdle 1.582211, fullBW 224000000000.000000, coreFreq 1991298432.000000, uncoreFreq 2993936384.000000
+timeRoof 1.453990 timeLatency 0.546010
+coreFreq 20 uncoreFreq 30
+compute bound time atMaxFreq 2.000000 latency 0.546010 coreBusy 1.453990 factor 1.000000
+timeInterval 2.000000  timeCoreBusy 1.453990 timeMemBusy 0.417789 1.05*timeAtMaxFreq 2.100000 new timeInterval 2.018828 noBottlenecktime 0.432195
+timeInterval 2.000000  timeCoreBusy 1.453990 timeMemBusy 0.417789 1.05*timeAtMaxFreq 2.100000 new timeInterval 2.039001 noBottlenecktime 0.447631
+timeInterval 2.000000  timeCoreBusy 1.453990 timeMemBusy 0.417789 1.05*timeAtMaxFreq 2.100000 new timeInterval 2.060668 noBottlenecktime 0.464209
+timeInterval 2.000000  timeCoreBusy 1.453990 timeMemBusy 0.417789 1.05*timeAtMaxFreq 2.100000 new timeInterval 2.084002 noBottlenecktime 0.482064
+timeInterval 2.000000  timeCoreBusy 1.453990 timeMemBusy 0.417789 1.05*timeAtMaxFreq 2.100000 new timeInterval 2.109202 noBottlenecktime 0.501346
+core bound new Freq core 28 uncore 26
+
+***** Roofline DRAM ******
+ins 50256310272.000000, datavolume 99140018176.000000, timeinterval 2.000000, timeCoreStall 0.703430, timeMemIdle 0.055616, fullBW 50987872256.000000, coreFreq 1991298432.000000, uncoreFreq 2993936384.000000
+timeRoof 1.944384 timeLatency 0.055616
+coreFreq 20 uncoreFreq 30
+memory bound time atMaxFreq 1.984110 latency 0.055616 coreBusy 1.296570 factor 0.714286
+timeInterval 2.000000  timeCoreBusy 1.296570 timeMemBusy 1.944384 1.05*timeAtMaxFreq 2.083315 new time latency 0.058543 , new timeInterval 2.002927 noBottlenecktime 1.364811
+ latency procent 2.922863
+core 19  uncore 30
+memory bound new Freq core 19 uncore 30
+
+***** Conclusion ******
+l3BOundness 1 dramBoundness -1
+new setting : core 19  uncore 30
+Socket : 1
+WallTime : 2.000000
+Uncorefreq: 2.9937e+09
+CoreFreq : 1.8917e+09
+Core unhlated time : 1.998981
+Core halted time : 0.001019
+--------
+ins cumulative: 50264109056.000000
+cycles cumulative: 68067917824.000000
+L2 stalld : 18128506880.000000
+ Ldm stalld : 23557871616.000000
+total stalld : 42420314112.000000
+cycles : 68067917824.000000
+--------
+Time: Core : running 0.753205, total stall: 1.245777, stall+halted: 1.246795
+Time: Core : running 1.466593, l2 stall: 0.532388, stall+halted: 0.533407
+Time: Core : running 1.307147, ldm stall: 0.691835, stall+halted: 0.692853
+Rate: Core : running 37.660240%, total stall: 62.288837%, stall+halted: 62.339760%
+Rate: Core : running 73.329666%, l2 stall: 26.619404%, stall+halted: 26.670338%
+Rate: Core : running 65.357338%, ldm stall: 34.591736%, stall+halted: 34.642662%
+Time: Mem Busy: 1.952636 idle 0.047364
+Time: L3 busy: 0.416322 idle 1.583678
+Rate: Mem Busy: 97.631790 0dle 2.368212%
+Rate: L3 busy: 20.816095 0dle 79.183907%
+L3 volum: 9.3256e+10
+RAM volum: 9.9560e+10
+lowerBound : 17
+ upperBound : 18
+full L3 BW : 2.2400e+11
+ fullRAMBW: 5.0987e+10
+PKG Energy: 182.243958
+ PKG Power : 91.121979
+DRAM Energy: 36.665985
+ Power : 18.332993
+***** Roofline L3 ******
+ins 50264109056.000000, datavolume 93256105984.000000, timeinterval 2.000000, timeCoreStall 0.533407, timeMemIdle 1.583678, fullBW 224000000000.000000, coreFreq 1891738752.000000, uncoreFreq 2993746432.000000
+timeRoof 1.466593 timeLatency 0.533407
+coreFreq 19 uncoreFreq 30
+compute bound time atMaxFreq 2.000000 latency 0.533407 coreBusy 1.466593 factor 1.000000
+timeInterval 2.000000  timeCoreBusy 1.466593 timeMemBusy 0.416322 1.05*timeAtMaxFreq 2.100000 new timeInterval 2.018393 noBottlenecktime 0.430678
+timeInterval 2.000000  timeCoreBusy 1.466593 timeMemBusy 0.416322 1.05*timeAtMaxFreq 2.100000 new timeInterval 2.038100 noBottlenecktime 0.446059
+timeInterval 2.000000  timeCoreBusy 1.466593 timeMemBusy 0.416322 1.05*timeAtMaxFreq 2.100000 new timeInterval 2.059268 noBottlenecktime 0.462580
+timeInterval 2.000000  timeCoreBusy 1.466593 timeMemBusy 0.416322 1.05*timeAtMaxFreq 2.100000 new timeInterval 2.082062 noBottlenecktime 0.480371
+timeInterval 2.000000  timeCoreBusy 1.466593 timeMemBusy 0.416322 1.05*timeAtMaxFreq 2.100000 new timeInterval 2.106681 noBottlenecktime 0.499586
+core bound new Freq core 28 uncore 26
+
+***** Roofline DRAM ******
+ins 50264109056.000000, datavolume 99560005632.000000, timeinterval 2.000000, timeCoreStall 0.692853, timeMemIdle 0.047364, fullBW 50987495424.000000, coreFreq 1891738752.000000, uncoreFreq 2993746432.000000
+timeRoof 1.952636 timeLatency 0.047364
+coreFreq 19 uncoreFreq 30
+memory bound time atMaxFreq 1.984776 latency 0.047364 coreBusy 1.307147 factor 0.678571
+timeInterval 2.000000  timeCoreBusy 1.307147 timeMemBusy 1.952636 1.05*timeAtMaxFreq 2.084015 new time latency 0.049996 , new timeInterval 2.002631 noBottlenecktime 1.379766
+ latency procent 2.496495
+core 18  uncore 30
+memory bound new Freq core 18 uncore 30
+
+***** Conclusion ******
+l3BOundness 1 dramBoundness -1
